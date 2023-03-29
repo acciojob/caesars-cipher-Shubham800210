@@ -14,25 +14,18 @@ function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
 	var encryptedStr = "";
-
-function encrypt(str) {
-  for (ch in str) {
-    if (str.charCodeAt(ch) >= 65 && str.charCodeAt(ch) <= 90) {
-      // my current character is a CAPITAL Alphabet
-      if (str.charCodeAt(ch) >= 78) {
-        encryptedStr += String.fromCharCode(str.charCodeAt(ch) - 13);
-      } else {
-        encryptedStr += String.fromCharCode(str.charCodeAt(ch) + 13);
-      }
+	for (let i = 0; i < encodedStr.length; i++) {
+    let char = encodedStr[i];
+    if (lookup[char]) {
+      decodedArr.push(lookup[char]);
     } else {
-      encryptedStr += str[ch];
+      decodedArr.push(char);
     }
   }
 
-  return encryptedStr;
 }
+  return decodedArr.join("");
 
-  return ;//return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
