@@ -13,6 +13,24 @@ const lookup = {
 function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
+	var encryptedStr = "";
+
+function encrypt(str) {
+  for (ch in str) {
+    if (str.charCodeAt(ch) >= 65 && str.charCodeAt(ch) <= 90) {
+      // my current character is a CAPITAL Alphabet
+      if (str.charCodeAt(ch) >= 78) {
+        encryptedStr += String.fromCharCode(str.charCodeAt(ch) - 13);
+      } else {
+        encryptedStr += String.fromCharCode(str.charCodeAt(ch) + 13);
+      }
+    } else {
+      encryptedStr += str[ch];
+    }
+  }
+
+  return encryptedStr;
+}
 
   return ;//return decodedArr
 }
